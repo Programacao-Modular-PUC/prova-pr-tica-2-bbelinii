@@ -4,10 +4,13 @@
  */
 package pm_prova2_m;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author glbra
  */
+
 public abstract class Aluguel {
 
     private String nomeCliente;
@@ -15,12 +18,24 @@ public abstract class Aluguel {
     private double valorTotal;
     private StatusAluguel status;
 
+    private ArrayList<Veiculo> veiculos;
+
     public Aluguel(String nomeCliente, int quantidadeDias, double valorTotal, StatusAluguel status) {
 
         this.nomeCliente = nomeCliente;
         this.quantidadeDias = quantidadeDias;
         this.valorTotal = valorTotal;
         this.status = status;
+
+        veiculos = new ArrayList<>();
+    }
+
+    public void adicionarVeiculo(Veiculo veiculo) {
+        veiculos.add(veiculo);
+    }
+
+    public ArrayList<Veiculo> getVeiculos() {
+        return veiculos;
     }
 
     public String getNomeCliente() {
@@ -58,5 +73,4 @@ public abstract class Aluguel {
     public abstract void exibirDetalhes();
 
     public abstract boolean possuiSeguroIncluso();
-    
 }
